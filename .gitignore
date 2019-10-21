@@ -6,3 +6,5 @@ app/data
 app/__pycache__/*
 .idea/*
 tests/__pycache__/*
+app/song_1.mp3
+app/song_2.mp3
