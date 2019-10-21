@@ -1,0 +1,15 @@
+[RABBITMQ]
+HOST = 127.0.0.1
+USERNAME =
+PASSWORD =
+VIRTUAL_HOST =
+PORT = 5672
+REQUEST_QUEUE = audio_fingerprinting_request_queue
+RESPONSE_QUEUE = audio_fingerprinting_response_queue
+
+[MODE]
+DEBUG = True
+
+[APP]
+APP_NAME = MICRO SERVICE
+APP_VERSION = 1.0.0
