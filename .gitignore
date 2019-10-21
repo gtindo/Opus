@@ -3,3 +3,6 @@ config.txt
 logs
 docs/build
 app/data
+app/__pycache__/*
+.idea/*
+tests/__pycache__/*
