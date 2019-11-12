@@ -8,3 +8,5 @@ app/__pycache__/*
 tests/__pycache__/*
 app/song_1.mp3
 app/song_2.mp3
+.history
+.vscode
