@@ -57,7 +57,7 @@ def validate_fingerprint_input(message):
     """
     input_schema = {
         "type": "object",
-        "required": ["action", "file_id", "song"],
+        "required": ["action", "song"],
         "properties": {
             "action": {"type": "string", "description": "Function to call"},
             "song": {

@@ -32,7 +32,7 @@ Audio Fingerprinting Microservice
        ````shell script
         cd app && and touch config.txt
 
-    - Write configurations on file \
+    - Write configurations on file (like config.example.txt)\
          [RABBITMQ] \
          HOST = host_name \
          VIRTUAL_HOST = virtual_host \
@@ -62,3 +62,78 @@ Audio Fingerprinting Microservice
 ## Run unit tests  
     cd tests
     python -m unittest
+
+
+## Messages
+
+### Compare two songs
+
+* Input Message
+```json
+{
+    "action": "compare",
+    "song_1": {
+      "name": "song_1",
+      "file_id": "unique identifier of file",
+      "content": "file encoded with base64",
+      "extension": "mp3"  
+    },
+    "song_2": {
+      "name": "song_2",
+      "file_id": "unique identifier of file",
+      "content": "file encoded with base64",
+      "extension": "mp3"  
+    }
+}
+```
+
+* Output Message
+
+```json
+{
+  "action": "compare",
+  "code": "message code",
+  "message": {
+    "ratio": "ratio",
+    "song_1_duration": "duration_1",
+    "song_2_duration": "duration_2"
+  },
+  "status": "true or false",
+  "files_ids": ["file1_id", "file2_id"]
+}
+```
+
+### Generate fingerprint of a song
+
+* Input Message
+
+```json
+{
+  "action": "fingerprint",
+  "song": {
+    "name": "song",
+    "file_id": "unique identifier",
+    "content": "file encoded with base64",
+    "extension": "mp3"
+  }
+}
+```
+
+* Output Message
+
+```json
+{
+  "action": "fingerprint",
+  "code": "message code",
+  "message": {
+    "fingerprint": "fingerprint",
+    "duration": "duration"
+  },
+  "status": "true or false",
+  "files_ids": ["file_id"]
+}
+```
+
+## Author 
+
+G_T_Y

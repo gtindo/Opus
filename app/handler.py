@@ -12,7 +12,7 @@ def fingerprint_handler(message):
     file_id = message["song"]["file_id"]
     file_extension = message["song"]["extension"]
 
-    response = utils.format_response(code="SUC200", status="success", message={}, files_ids=[file_id], action=action)
+    response = utils.format_response(code="SUC200", status=True, message={}, files_ids=[file_id], action=action)
 
     if file_extension in AUTHORIZED_EXTENSIONS:
         saved_file = utils.save_file(file_string, file_id, file_extension)
@@ -25,7 +25,7 @@ def fingerprint_handler(message):
         os.remove(saved_file)
     else:
         response["code"] = "ERR401"
-        response["status"] = "error"
+        response["status"] = False
         response["message"] = 'The extension of file is not allowed.'
 
         publisher.send_message(json.dumps(response))
@@ -45,7 +45,7 @@ def compare_handler(message):
 
     response = utils.format_response(
         code="SUC200",
-        status="success",
+        status=True,
         message={},
         files_ids=[file_1_id, file_2_id],
         action=action
@@ -64,7 +64,7 @@ def compare_handler(message):
         os.remove(saved_file_2)
     else:
         response["code"] = "ERR401"
-        response["status"] = "error"
+        response["status"] = False
         response["message"] = 'The extension of file is not allowed.'
 
         publisher.send_message(json.dumps(response))
