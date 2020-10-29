@@ -1,6 +1,6 @@
 # Opus
 
-Audio Fingerprinting
+Audio Fingerprinting microservice
 
 ## Overview on How to Run this Project
 
