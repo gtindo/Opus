@@ -134,6 +134,6 @@ Audio Fingerprinting microservice
 }
 ```
 
-## Author 
+## License
 
-G_T_Y
+MIT @ [Gtindo Dev](https://www.gtindo.dev)
